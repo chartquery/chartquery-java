@@ -12,7 +12,15 @@ The SDK exposes **20 typed methods**, one per documented endpoint, each with a p
 
 ## Installation
 
-Maven:
+The SDK is not on Maven Central. Build it from source, which installs it in your local Maven repository:
+
+```sh
+git clone https://github.com/chartquery/chartquery-java.git
+cd chartquery-java
+mvn -q install -DskipTests
+```
+
+Then add it to your project. Maven:
 
 ```xml
 <dependency>
@@ -22,7 +30,7 @@ Maven:
 </dependency>
 ```
 
-Gradle:
+Gradle, with `mavenLocal()` in your repositories:
 
 ```kotlin
 implementation("com.chartquery:chartquery:0.1.0")
@@ -175,6 +183,20 @@ ChartQueryClient client = ChartQueryClient.builder()
 | `qrcode()` | GET / POST `/v1/qrcode` | Generate a styled QR code via GET. Output: SVG (default) or PNG. Supports dot styles, gradients, custom corners and all QR versions. |
 | `stats()` | GET `/v1/stats` | Infrastructure health for an engine or endpoint over the last hour. Not scoped to your account or tenant. Enabled per account: HTTP 403 mea… |
 | `usage()` | GET `/v1/usage` | Return this account's Chartquery usage and credit balance. No body. Requires an API key. |
+
+## All ChartQuery SDKs
+
+| SDK | Package | Install |
+| --- | --- | --- |
+| Node.js | [`@chartquery/sdk`](https://www.npmjs.com/package/@chartquery/sdk) | `npm install @chartquery/sdk` |
+| Python | [`chartquery`](https://pypi.org/project/chartquery/) | `pip install chartquery` |
+| Go | [`chartquery-go`](https://pkg.go.dev/github.com/chartquery/chartquery-go) | `go get github.com/chartquery/chartquery-go` |
+| .NET | [`ChartQuery`](https://www.nuget.org/packages/ChartQuery) | `dotnet add package ChartQuery` |
+| Ruby | [`chartquery`](https://rubygems.org/gems/chartquery) | `gem install chartquery` |
+| PHP | [`chartquery/sdk`](https://packagist.org/packages/chartquery/sdk) | `composer require chartquery/sdk` |
+| Java | [`chartquery-java`](https://github.com/chartquery/chartquery-java) | build from source, see its README |
+| CLI | [`@chartquery/cli`](https://www.npmjs.com/package/@chartquery/cli) | `npm install -g @chartquery/cli` |
+| MCP server | [`@chartquery/mcp`](https://www.npmjs.com/package/@chartquery/mcp) | `npx -y @chartquery/mcp` |
 
 ## License
 
